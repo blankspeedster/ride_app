@@ -43,7 +43,7 @@
     props: {
       title: {
         type: String,
-        default: 'BULSU SPARK'
+        default: 'RIDER APP'
       },
       backgroundColor: {
         type: String,

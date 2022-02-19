@@ -50,7 +50,7 @@
           </ul>
         </nav>
         <div class="copyright text-center">
-          &copy; BULSU Addmision CRM
+          &copy; Rider App
         </div>
       </div>
     </footer>

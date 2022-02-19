@@ -1,5 +1,5 @@
 # admission_crm
- Admission CRM for Bulsu with LSM
+ Rider Application with suggesetion
 
 
 ### Installation of required libraries

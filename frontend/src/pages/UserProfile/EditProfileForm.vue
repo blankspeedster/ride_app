@@ -1,46 +1,47 @@
 <template>
   <card>
-    <h4 slot="header" class="card-title">Predict Population</h4>
+    <h4 slot="header" class="card-title">Suggestion and Recommendation</h4>
     <form>
       <div class="row">
         <div class="col-md-3">
           <base-input
             type="number"
-            label="Year"
-            placeholder="2022"
-            v-model="year"
+            label="Age"
+            placeholder="20"
+            v-model="age"
+          >
+          </base-input>
+        </div>
+
+        <div class="col-md-3">
+          <base-input
+            type="number"
+            label="Blood Pressure"
+            placeholder="0"
+            v-model="blood_pressure"
           >
           </base-input>
         </div>
         <div class="col-md-3">
           <base-input
             type="number"
-            label="Rooms"
+            label="Heart Rate"
             placeholder="0"
-            v-model="rooms"
+            v-model="heart_rate"
           >
           </base-input>
         </div>
         <div class="col-md-3">
           <base-input
             type="number"
-            label="Number of Full Time"
+            label="Respiration"
             placeholder="0"
-            v-model="fullTime"
-          >
-          </base-input>
-        </div>
-        <div class="col-md-3">
-          <base-input
-            type="number"
-            label="Number of Part Time"
-            placeholder="0"
-            v-model="partTime"
+            v-model="respiration"
           >
           </base-input>
         </div>
         <div v-if="replied" class="col-md-12">
-          The predicted population is: {{population}}
+          Response: {{allow}}
         </div>
         <div v-if="fireError" class="col-md-12">
           {{errorMessage}}
@@ -70,12 +71,12 @@ export default {
   },
   data() {
     return {
-        year: 2022,
-        rooms: 0,
-        fullTime: 0,
-        partTime: 0,
-
-        population: 0,
+        age: 0,
+        blood_pressure: 0,
+        heart_rate: 0,
+        respiration: 0,
+        
+        allow: "yes",
 
         fireError: false,
         fireMessage: "",
@@ -93,15 +94,15 @@ export default {
       var FormData = require("form-data");
       var data = new FormData();
       
-      data.append("year", this.year);
-      data.append("rooms", this.rooms);
-      data.append("fullTime", this.fullTime);
-      data.append("partTime", this.partTime);
+      data.append("age", this.age);
+      data.append("blood_pressure", this.blood_pressure);
+      data.append("heart_rate", this.heart_rate);
+      data.append("respiration", this.respiration);
 
 
       var config = {
         method: "post",
-        url: "http://localhost:5000/get-population",
+        url: "http://localhost:5000/get-suggestion",
         headers: {},
         data: data,
       };
@@ -109,7 +110,7 @@ export default {
       await axios(config)
         .then((response) => {
           this.replied = true;
-          this.population = response.data.population;
+          this.allow = response.data;
           this.fireError = false;
         })
         .catch((error) => {
