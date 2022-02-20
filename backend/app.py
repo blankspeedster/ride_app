@@ -74,7 +74,24 @@ def recommend_program():
 
         allow = clf.predict([[age, age, blood_pressure, blood_pressure, blood_pressure, blood_pressure, heart_rate, heart_rate, respiration]])
         allow = allow[0]
-        return jsonify({"Allow Ride?":allow})
+
+        #Suggestions
+        Y = DATA_CSV_FILE['suggestion']
+
+
+        X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state=5)
+        print(X_train.shape)
+        print(X_test.shape)
+        print(Y_train.shape)
+        print(Y_test.shape)
+
+        clf = DecisionTreeClassifier()
+        clf.fit(X_train, Y_train)
+
+        suggestion = clf.predict([[age, age, blood_pressure, blood_pressure, blood_pressure, blood_pressure, heart_rate, heart_rate, respiration]])
+        suggestion = suggestion[0]
+
+        return jsonify({"allow":allow, "suggestions":suggestion})
     else:
         pass
         return jsonify({"Error: ":'Please submit the fields first.'})

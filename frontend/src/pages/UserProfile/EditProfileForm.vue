@@ -41,7 +41,8 @@
           </base-input>
         </div>
         <div v-if="replied" class="col-md-12">
-          Response: {{allow}}
+          Allow Ride Feedback: {{allow}}<br>
+          Please Follow these Recommendations: {{suggestions}}
         </div>
         <div v-if="fireError" class="col-md-12">
           {{errorMessage}}
@@ -77,6 +78,7 @@ export default {
         respiration: 0,
         
         allow: "yes",
+        suggestions: "",
 
         fireError: false,
         fireMessage: "",
@@ -110,7 +112,9 @@ export default {
       await axios(config)
         .then((response) => {
           this.replied = true;
-          this.allow = response.data;
+          console.log(response.data);
+          this.allow = response.data.allow;
+          this.suggestions = response.data.suggestions;
           this.fireError = false;
         })
         .catch((error) => {
