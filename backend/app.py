@@ -22,7 +22,7 @@ recommendedProgram = "NA"
 @app.route('/get-suggestion', methods = ['GET', 'POST'])
 def recommend_program():
     if request.method == 'POST':
-        #Run here recommend program
+        #Algorithm here - Decision Tree
         #import libraries
         import numpy as np
         import pandas as pd  
