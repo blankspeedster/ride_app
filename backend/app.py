@@ -31,7 +31,8 @@ def recommend_program():
 
 
         age = request.form.get('age')
-        blood_pressure = request.form.get('blood_pressure')
+        blood_pressure_systolic = request.form.get('blood_pressure_systolic')
+        blood_pressure_diastolic = request.form.get('blood_pressure_diastolic')
         heart_rate = request.form.get('heart_rate')
         respiration = request.form.get('respiration')
 
@@ -72,7 +73,7 @@ def recommend_program():
         clf = DecisionTreeClassifier()
         clf.fit(X_train, Y_train)
 
-        allow = clf.predict([[age, age, blood_pressure, blood_pressure, blood_pressure, blood_pressure, heart_rate, heart_rate, respiration]])
+        allow = clf.predict([[age, age, blood_pressure_systolic, blood_pressure_diastolic, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, heart_rate, respiration]])
         allow = allow[0]
 
         #Suggestions
@@ -88,7 +89,7 @@ def recommend_program():
         clf = DecisionTreeClassifier()
         clf.fit(X_train, Y_train)
 
-        suggestion = clf.predict([[age, age, blood_pressure, blood_pressure, blood_pressure, blood_pressure, heart_rate, heart_rate, respiration]])
+        suggestion = clf.predict([[age, age, blood_pressure_systolic, blood_pressure_diastolic, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, heart_rate, respiration]])
         suggestion = suggestion[0]
 
         return jsonify({"allow":allow, "suggestions":suggestion})

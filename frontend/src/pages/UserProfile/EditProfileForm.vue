@@ -16,12 +16,23 @@
         <div class="col-md-3">
           <base-input
             type="number"
-            label="Blood Pressure"
+            label="Blood Pressure Systolic"
             placeholder="0"
-            v-model="blood_pressure"
+            v-model="blood_pressure_systolic"
           >
           </base-input>
         </div>
+
+        <div class="col-md-3">
+          <base-input
+            type="number"
+            label="Blood Pressure Diastolic"
+            placeholder="0"
+            v-model="blood_pressure_diastolic"
+          >
+          </base-input>
+        </div>
+
         <div class="col-md-3">
           <base-input
             type="number"
@@ -73,6 +84,8 @@ export default {
   data() {
     return {
         age: 0,
+        blood_pressure_systolic: 0,
+        blood_pressure_diastolic: 0,
         blood_pressure: 0,
         heart_rate: 0,
         respiration: 0,
@@ -97,7 +110,8 @@ export default {
       var data = new FormData();
       
       data.append("age", this.age);
-      data.append("blood_pressure", this.blood_pressure);
+      data.append("blood_pressure_systolic", this.blood_pressure);
+      data.append("blood_pressure_diastolic", this.blood_pressure);
       data.append("heart_rate", this.heart_rate);
       data.append("respiration", this.respiration);
 
