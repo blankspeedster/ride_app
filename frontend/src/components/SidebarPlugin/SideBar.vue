@@ -43,7 +43,7 @@
     props: {
       title: {
         type: String,
-        default: 'RIDER APP'
+        default: 'iResponse'
       },
       backgroundColor: {
         type: String,

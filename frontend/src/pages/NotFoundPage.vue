@@ -50,7 +50,7 @@
           </ul>
         </nav>
         <div class="copyright text-center">
-          &copy; Rider App
+          &copy; iResponse
         </div>
       </div>
     </footer>

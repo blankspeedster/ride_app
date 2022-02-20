@@ -9,7 +9,7 @@
         </ul>
       </nav>
       <div class="copyright text-center">
-        &copy; BULSU Admission CRM
+        &copy; iResponse
       </div>
     </div>
   </footer>
