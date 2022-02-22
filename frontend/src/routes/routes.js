@@ -12,6 +12,8 @@ import Maps from 'src/pages/Maps.vue'
 import Notifications from 'src/pages/Notifications.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
 
+import Users from 'src/pages/Users.vue'
+
 const routes = [
   {
     path: '/',
@@ -29,9 +31,9 @@ const routes = [
         component: Overview
       },
       {
-        path: 'user',
-        name: 'User',
-        component: UserProfile
+        path: 'users',
+        name: 'Users',
+        component: Users
       },
       {
         path: 'table-list',
