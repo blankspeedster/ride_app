@@ -13,7 +13,6 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 
 @app.route('/', methods = ['GET'])
 def get_articles():
-    #Run h
     return jsonify({"Hello":"World"})
 
 #Set the recommended program here
@@ -29,13 +28,13 @@ def recommend_program():
         from sklearn.model_selection import train_test_split
         from sklearn.tree import DecisionTreeClassifier
 
-
         age = request.form.get('age')
         blood_pressure_systolic = request.form.get('blood_pressure_systolic')
         blood_pressure_diastolic = request.form.get('blood_pressure_diastolic')
         heart_rate = request.form.get('heart_rate')
         respiration = request.form.get('respiration')
-
+        print(request)
+        
         DATA_CSV_FILE = pd.read_csv('ride_data_set.csv')
         DATA_CSV_FILE.isnull().sum()
 
@@ -100,3 +99,6 @@ def recommend_program():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+##Run Flask in custom host: flask run --host=127.1.1.1

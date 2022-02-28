@@ -24,12 +24,12 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
         <div id="layoutSidenav_content">
             <main id="vueApp">
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Dashboard</h1>
+                    <h1 class="mt-4">Vital Signs Monitoring</h1>
                     <ol class="breadcrumb mb-4">
                         <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                     </ol>
 
-                    <div class="row mb-4">
+                    <div class="row mb-4" style="display: none;">
                         <div class="col-xl-12">
                             <div class="card mb-4">
                                 <div class="card-header">
@@ -41,9 +41,10 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
                         </div>
                     </div>
 
-                    <div class="row" style="display: none;">
+                    <div class="row">
                     <div class="col-xl-12">
-                            <center><h4>Recommender</h4></center>
+                            <h5>Hi Mark! Good day.</h5>
+                            <h6>Here are your vital signs today. (<?php echo date("Y/m/d"); ?>)</h6>
                         </div>
                         <div class="col-xl-3">
                             <label>Age</label>
@@ -71,12 +72,14 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
                         </div>
 
                         <div v-if="replied" class="col-md-12">
-                            Allow Ride Feedback: {{allow}}<br>
+                            <br>
+                            Allow Ride: {{allow}}<br>
                             Please Follow these Recommendations: {{suggestions}}
                         </div>
                         <div v-if="fireError" class="col-md-12">
                             {{errorMessage}}
                         </div>
+
 
                         <div class="text-center mt-4 mb-4">
                             <button type="submit" class="btn btn-primary btn-fill float-right" @click.prevent="validatePredictProgram">

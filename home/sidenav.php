@@ -6,10 +6,28 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="devices.php">
+                        <a class="nav-link" href="vital.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tablet-alt"></i></div>
-                            My Devices
-                        </a>                        
+                            Vital Signs Monitoring
+                        </a>     
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
+                            Set Date and Time for Long Ride
+                        </a>   
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-biking"></i></div>
+                            Lond Ride Checklist
+                        </a>  
+                        <a class="nav-link" href="vital_signs.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-line"></i></div>
+                            Vital Signs Log
+                        </a>                          
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
+                            Edit Profile
+                        </a>                                                  
+                        
+
                         <!-- <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -74,7 +92,7 @@
                         </a> -->
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
+                <div class="sb-sidenav-footer" style="color: white !important;">
                     <div class="small">Logged in as:</div>
                     Admin
                 </div>
