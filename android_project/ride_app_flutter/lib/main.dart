@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Active Arcade',
+      title: 'iResponse',
       home: Scaffold(
           body: SafeArea(
             child: WebView(
