@@ -178,14 +178,25 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                 <td colspan="2">
                                                     <strong>Recommendations:</strong>
                                                     <!-- <hr> --><br>
-                                                    Always bring your water. Get enough rest before your Long Ride.
+                                                    <label class="text-success"><b>Yes, Fit for Long Ride</b></label>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
                                                     <strong>Suggestions:</strong>
+                                                    <br>
+
+                                                    Always bring your water. Get enough rest before your Long Ride.<br>
+                                                   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <br>
+                                                    
+                                                    <strong>Checklist / Tips:</strong>
                                                     <!-- <hr> --><br>
-                                                    Don't forget to bring the following:<br>
+                                                    <i>Don't forget to bring the following:</i><br>
 
                                                     Eye Wear<br>
                                                     Helmet<br>
@@ -193,15 +204,10 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                     Emergency Kit (Medicine Kit)<br>
                                                     Vehicle Speedometer<br>
                                                     Air Pump<br>
-                                                    Allen Wrench Set<br>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <strong>Checklist / Tips:</strong>
-                                                    <!-- <hr> --><br>
-                                                    Check the following<br>
+                                                    Allen Wrench Set<br><br>
+                                                    
+                                                    <i>Check the following:</i>
+                                                    <br>
                                                     Tire Air Pressure<br>
                                                     Chain Lubricant<br>
                                                     Brake Pads<br>

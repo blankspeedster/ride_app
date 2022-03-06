@@ -164,7 +164,7 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
                                         echo "\"" . $humid['time_log'] . "\",";
                                     }  ?>],
                         datasets: [{
-                            label: "Temperature",
+                            label: "Heart Rate",
                             lineTension: 0.3,
                             backgroundColor: "rgba(2,117,216,0.2)",
                             borderColor: "rgba(2,117,216,1)",
