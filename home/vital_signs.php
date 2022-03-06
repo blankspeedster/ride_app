@@ -30,17 +30,17 @@ ON p.device_id = d.id") or die($mysqli->error);
                         <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                     </ol>
                     <div class="row">
-                    <!-- Notification here -->
-                    <?php
-                    if (isset($_SESSION['notification'])) { ?>
-                        <div class="alert alert-<?php echo $_SESSION['msg_type']; ?> alert-dismissible">
-                            <?php
-                            echo $_SESSION['notification'];
-                            unset($_SESSION['notification']);
-                            ?>
-                        </div>
-                    <?php } ?>
-                    <!-- End Notification -->
+                        <!-- Notification here -->
+                        <?php
+                        if (isset($_SESSION['notification'])) { ?>
+                            <div class="alert alert-<?php echo $_SESSION['msg_type']; ?> alert-dismissible">
+                                <?php
+                                echo $_SESSION['notification'];
+                                unset($_SESSION['notification']);
+                                ?>
+                            </div>
+                        <?php } ?>
+                        <!-- End Notification -->
                     </div>
 
                     <!-- Add Device -->
@@ -79,14 +79,14 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                 <br>
                                                 <button style="float: right;" class="btn btn-primary btn-sm" type="submit" name="add_device">Add Device</button>
                                             </div>
-                                            
+
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- List of Devices -->
                     <div class="row">
                         <div class="col-xl-12">
@@ -106,40 +106,108 @@ ON p.device_id = d.id") or die($mysqli->error);
                                         <tbody>
                                             <tr>
                                                 <td>Day 1</td>
-                                                <td>Summary</td>
+                                                <td>
+                                                    Blood Pressure Systolic: 125<br>
+                                                    Blood Pressure Diastolic: 80<br>
+                                                    Heart Rate: 70<br>
+                                                    Respiration Rate: 98<br>
+                                                    <label class="text-success"><b>Approve Long Ride</b></label>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Day 2</td>
-                                                <td>Summary</td>
+                                                <td>
+                                                    Blood Pressure Systolic: 128<br>
+                                                    Blood Pressure Diastolic: 80<br>
+                                                    Heart Rate: 80<br>
+                                                    Respiration Rate: 98<br>
+                                                    <label class="text-success"><b>Approve Long Ride</b></label>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Day 3</td>
-                                                <td>Summary</td>
+                                                <td>
+                                                    Blood Pressure Systolic: 120<br>
+                                                    Blood Pressure Diastolic: 70<br>
+                                                    Heart Rate: 60<br>
+                                                    Respiration Rate: 80<br>
+                                                    <label class="text-danger"><b>Reject Long Ride</b></label>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Day 4</td>
-                                                <td>Summary</td>
+                                                <td>
+                                                    Blood Pressure Systolic: 105<br>
+                                                    Blood Pressure Diastolic: 80<br>
+                                                    Heart Rate: 65<br>
+                                                    Respiration Rate: 81<br>
+                                                    <label class="text-danger"><b>Reject Long Ride</b></label>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Day 5</td>
-                                                <td>Summary</td>
+                                                <td>
+                                                    Blood Pressure Systolic: 100<br>
+                                                    Blood Pressure Diastolic: 70<br>
+                                                    Heart Rate: 65<br>
+                                                    Respiration Rate: 85<br>
+                                                    <label class="text-danger"><b>Reject Long Ride</b></label>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Day 6</td>
-                                                <td>Summary</td>
+                                                <td>
+                                                    Blood Pressure Systolic: 120<br>
+                                                    Blood Pressure Diastolic: 80<br>
+                                                    Heart Rate: 80<br>
+                                                    Respiration Rate: 88<br>
+                                                    <label class="text-success"><b>Approve Long Ride</b></label>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Day 7</td>
-                                                <td>Summary</td>
+                                                <td>
+                                                    Blood Pressure Systolic: 120<br>
+                                                    Blood Pressure Diastolic: 70<br>
+                                                    Heart Rate: 60<br>
+                                                    Respiration Rate: 80<br>
+                                                    <label class="text-danger"><b>Reject Long Ride</b></label>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><strong>Recommendations:</strong> </td>
+                                                <td colspan="2">
+                                                    <strong>Recommendations:</strong>
+                                                    <!-- <hr> --><br>
+                                                    Always bring your water. Get enough rest before your Long Ride.
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><strong>Suggestions:</strong> </td>
+                                                <td colspan="2">
+                                                    <strong>Suggestions:</strong>
+                                                    <!-- <hr> --><br>
+                                                    Don't forget to bring the following:
+
+                                                    Eye Wear<br>
+                                                    Helmet<br>
+                                                    Flashlight<br>
+                                                    Emergency Kit (Medicine Kit)<br>
+                                                    Vehicle Speedometer<br>
+                                                    Air Pump<br>
+                                                    Allen Wrench Set<br>
+
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><strong>Checklist / Tips:</strong> </td>
+                                                <td colspan="2">
+                                                    <strong>Checklist / Tips:</strong>
+                                                    <!-- <hr> --><br>
+                                                    Check the following<br>
+                                                    Tire Air Pressure<br>
+                                                    Chain Lubricant<br>
+                                                    Brake Pads<br>
+                                                    Brake Levers<br>
+                                                    Extra Money<br>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
