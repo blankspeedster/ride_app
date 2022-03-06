@@ -18,7 +18,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <img src="./assets/iresponse_logo.png">
+                                    <img src="./assets/iresponse_logo.png" style="min-height: 100px; max-height: 100px;">
                                     <div class="card-header" style="background-color: white !important;"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form>
