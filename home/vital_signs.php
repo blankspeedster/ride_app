@@ -185,7 +185,7 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                 <td colspan="2">
                                                     <strong>Suggestions:</strong>
                                                     <!-- <hr> --><br>
-                                                    Don't forget to bring the following:
+                                                    Don't forget to bring the following:<br>
 
                                                     Eye Wear<br>
                                                     Helmet<br>
