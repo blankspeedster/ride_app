@@ -127,10 +127,11 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
                             data.append("heart_rate", this.heart_rate);
                             data.append("respiration", this.respiration);
 
-
+                            // https://floating-everglades-04272.herokuapp.com/
+                            // http://127.0.0.1:5000/
                             var config = {
                                 method: "post",
-                                url: "http://127.1.1.1:5000/get-suggestion",
+                                url: "https://floating-everglades-04272.herokuapp.com/get-suggestion",
                                 headers: {},
                                 data: data,
                             };
