@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ride_app_flutter">
+<uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="ride_app_flutter"
+        android:label="iResponse"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
