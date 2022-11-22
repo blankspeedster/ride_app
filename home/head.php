@@ -1,3 +1,10 @@
+<?php
+    include("dbh.php");
+    
+    if(!isset($_SESSION['email'])){
+        header('location: login.php');
+    }
+?>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

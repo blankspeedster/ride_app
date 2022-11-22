@@ -24,42 +24,42 @@
                                     <h3 class="text-center font-weight-light my-4">Create Account</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form method="post" action="process_register.php">
                                         <div class="mb-3">
                                             <label>Personal Information</label>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" name="firstName" />
                                                     <label for="inputFirstName">First name</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                                    <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" name="lastName" />
                                                     <label for="inputLastName">Last name</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                            <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" name="email"/>
                                             <label for="inputEmail">Email address</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="text" placeholder="Address" />
+                                            <input class="form-control" id="inputEmail" type="text" placeholder="Address" name="address"/>
                                             <label for="inputEmail">Address</label>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                                                    <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" name="password"/>
                                                     <label for="inputPassword">Password</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                    <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" name="confirmPassword"/>
                                                     <label for="inputPasswordConfirm">Confirm Password</label>
                                                 </div>
                                             </div>
@@ -69,19 +69,21 @@
                                             <label>In case of emergency, please provide the following:</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="number" placeholder="Emergency Contact Name" />
+                                            <input class="form-control" id="inputEmail" type="number" placeholder="Emergency Contact Name" name="emergencyContactName"/>
                                             <label for="inputEmail">Emergency Contact Name</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="number" placeholder="Emergency Contact Number" />
+                                            <input class="form-control" id="inputEmail" type="number" placeholder="Emergency Contact Number" name="emergencyContactNumber"/>
                                             <label for="inputEmail">Emergency Contact Number</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="number" placeholder="Relationship" />
-                                            <label for="inputEmail">Relationship</label>
+                                            <input class="form-control" id="inputRelationship" type="number" placeholder="Relationship" name="emergencyRelationship"/>
+                                            <label for="inputRelationship">Relationship</label>
                                         </div>
                                         <div class="mt-4 mb-0">
-                                            <div class="d-grid"><a class="btn btn-primary btn-block" href="login.php">Create Account</a></div>
+                                            <button class="d-grid btn btn-primary btn-block" type="submit" name="register_account">
+                                                Create Account
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
