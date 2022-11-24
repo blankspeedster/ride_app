@@ -21,7 +21,13 @@
                         <a class="nav-link" href="vital_signs.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-line"></i></div>
                             Vital Signs Log
-                        </a>                          
+                        </a>  
+
+                        <a class="nav-link" href="sample_sms.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-line"></i></div>
+                            Sample SMS
+                        </a>                            
+                        
                         <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                             Edit Profile
