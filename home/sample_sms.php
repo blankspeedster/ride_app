@@ -137,7 +137,7 @@ ON p.device_id = d.id") or die($mysqli->error);
 
                         async validateSendSMS(){
                             var _sample_message = encodeURIComponent(this.sample_message);
-                            var _url = "http://gateway.onewaysms.ph:10001/api.aspx";
+                            var _url = "https://gateway.onewaysms.ph:10001/api.aspx";
                             _url = _url+"?apiusername="+this.apiusername;
                             _url = _url+"&apipassword="+this.apipassword;
                             _url = _url+"&mobileno="+this.phone_number;
@@ -150,7 +150,7 @@ ON p.device_id = d.id") or die($mysqli->error);
                                 url: _url,
                                 headers: {},
                             };
-                            
+
                             await axios(config)
                                 .then((response) => {
                                     console.log(response.data);
