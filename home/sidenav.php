@@ -28,7 +28,7 @@
                             Sample SMS
                         </a>                            
                         
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="edit_profile.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                             Edit Profile
                         </a>                                                  

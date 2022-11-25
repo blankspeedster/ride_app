@@ -16,7 +16,9 @@
             $_SESSION['user_id'] = $newCheckUser["id"];
             $_SESSION['email'] = $newCheckUser["email"];
             $_SESSION['firstname'] = $newCheckUser["firstname"];
-            $_SESSION['lastname'] = $newCheckUser["lastname"];            
+            $_SESSION['lastname'] = $newCheckUser["lastname"];
+            $_SESSION['emergency_contact_number'] = $newCheckUser["emergency_contact_number"];
+
             header("location: index.php");
         }
     }

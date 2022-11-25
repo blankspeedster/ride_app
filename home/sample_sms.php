@@ -1,9 +1,6 @@
 <?php
 require_once("process_index.php");
-$presets = $mysqli->query("SELECT * FROM presets") or die($mysqli->error);
-$devices = $mysqli->query("SELECT * FROM devices d
-JOIN presets_device p
-ON p.device_id = d.id") or die($mysqli->error);
+$emergency_contact_number = $_SESSION['emergency_contact_number'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +53,8 @@ ON p.device_id = d.id") or die($mysqli->error);
 
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
-                                                <input class="form-control" id="phone_number" type="text" placeholder="Phone Number (include aread code)" name="phone_number" v-model="phone_number"/>
+                                                <input class="form-control" id="phone_number" type="text" placeholder="Phone Number (include aread code)" name="phone_number"
+                                                 v-model="phone_number" disabled />
                                                 <label for="phone_number">Phone Number</label>
                                             </div>
                                         </div>
@@ -74,13 +72,11 @@ ON p.device_id = d.id") or die($mysqli->error);
 
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
-                                                <button class="d-grid btn btn-primary btn-block" type="submit" name="register_account" @click.prevent="validateSendSMS">
-                                                    Send Text Message
+                                                <button class="d-grid btn btn-primary btn-block" type="submit" name="register_account" @click.prevent="validateSendSMS" :disabled='isDisabled'>
+                                                    {{sendButton}}
                                                 </button>
                                             </div>
                                         </div>
-
-
                                     </div>
 
                                 </div>
@@ -97,10 +93,12 @@ ON p.device_id = d.id") or die($mysqli->error);
                     el: "#vueApp",
                     data() {
                         return {
-                            phone_number: null,
+                            phone_number: <?php echo $emergency_contact_number; ?>,
                             sample_message: null,
                             apiusername: "APIFB2NQXUV1L",
                             apipassword: "APIFB2NQXUV1LFB2NQ",
+                            isDisabled: false,
+                            sendButton: "Send Text Message",
                         }
                     },
                     methods: {
@@ -136,7 +134,10 @@ ON p.device_id = d.id") or die($mysqli->error);
                         },
 
                         async validateSendSMS(){
-                            var _sample_message = encodeURIComponent(this.sample_message);
+                            this.isDisabled = true;
+                            this.sendButton = "Message has been sent. Plese check the SMS from your emergency contact.";
+                            var _initial_message = "DISCLAIMER: This is just a test message. "+this.sample_message;
+                            var _sample_message = encodeURIComponent(_initial_message);
                             var _url = "https://sgateway.onewaysms.com/apis10.aspx";
                             _url = _url+"?apiusername="+this.apiusername;
                             _url = _url+"&apipassword="+this.apipassword;
