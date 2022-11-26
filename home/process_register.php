@@ -56,4 +56,24 @@
 
         header("location: register.php");
     }
+
+    //Override Vitals
+    if(isset($_POST['override_vitals']))
+    {
+        $email = $_POST['email'];
+        $diastolic = $_POST['diastolic'];
+        $systolic = $_POST['systolic'];
+        $heart_rate = $_POST['heart_rate'];
+        $respiration = $_POST['respiration'];
+
+        $checkUser = $mysqli->query("SELECT * FROM users WHERE email='$email' ")or die ($mysqli->error);
+        $newCheckUser = $checkUser->fetch_array();
+        $user_id = $newCheckUser['id'];
+
+        $mysqli->query("INSERT INTO user_logs
+            (user_id, systolic, diastolic, heart_rate, respiration)
+            VALUES ('$user_id', '$diastolic', '$systolic', '$heart_rate', '$respiration' )") or die ($mysqli->error);
+
+        header("location: override_log.php");
+    }
 ?>
