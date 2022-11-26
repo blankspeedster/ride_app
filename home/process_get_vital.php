@@ -14,7 +14,7 @@ if(isset($_GET['checkMinutes'])){
     $user_id = $_GET["checkMinutes"];
     $getMinute = mysqli_query($mysqli, "SELECT * FROM message_sent WHERE user_id = '$user_id' ORDER BY id DESC LIMIT 1");
     if(mysqli_num_rows($getMinute) <= 0){
-        $response[] = array("minutes_passed"=>10);
+        $response[] = array("minutes_passed"=>11);
         echo json_encode($response);
     }
     else{

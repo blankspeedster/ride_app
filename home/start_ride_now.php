@@ -230,7 +230,7 @@ $first_name = $_SESSION['firstname'];
                                 .then((response) => {
                                     console.log(response);
                                     this.minutes = response.data.minutes_passed;
-                                    if (this.minutes > this.limit && this.allow === "NO") {
+                                    if (this.minutes >= this.limit && this.allow === "NO") {
                                         this.sendMessage();
                                     } else {
                                         var _minremaining = this.limit - this.minutes;
