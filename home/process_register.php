@@ -20,6 +20,10 @@
             $_SESSION['date_of_birth'] = $newCheckUser["date_of_birth"];
             $_SESSION['emergency_contact_number'] = $newCheckUser["emergency_contact_number"];
 
+            $user_id = $_SESSION['user_id'];
+
+            $mysqli->query("INSERT INTO user_logs(user_id, systolic, diastolic, heart_rate, respiration) VALUES('$user_id','100','100','80', '100') ");
+
             header("location: index.php");
         }
     }

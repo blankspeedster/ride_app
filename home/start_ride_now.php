@@ -41,15 +41,12 @@ $first_name = $_SESSION['firstname'];
                     </ol>
                     <div class="row">
                         <!-- Notification here -->
-                        <?php
-                        if (isset($_SESSION['notification'])) { ?>
-                            <div class="alert alert-<?php echo $_SESSION['msg_type']; ?> alert-dismissible">
-                                <?php
-                                echo $_SESSION['notification'];
-                                unset($_SESSION['notification']);
-                                ?>
-                            </div>
-                        <?php } ?>
+                        <div v-if="isAllowRide" class="alert alert-success">
+                            Status Good
+                        </div>
+                        <div v-else class="alert alert-danger">
+                            Status Borderline Warning! Please stop for a moment.
+                        </div>
                         <!-- End Notification -->
                     </div>
 
@@ -80,9 +77,9 @@ $first_name = $_SESSION['firstname'];
 
                                         <div class="col-md-12">
                                             <div class="form-floating mb-3 mb-md-0">
-                                                <button class="d-grid btn btn-primary btn-block" @click="checkMinute">
+                                                <!-- <button class="d-grid btn btn-primary btn-block" @click="checkMinute">
                                                     Sample Function Call
-                                                </button>
+                                                </button> -->
                                                 <br>
                                                 {{sendingSMSMessage}}
                                             </div>
@@ -120,13 +117,15 @@ $first_name = $_SESSION['firstname'];
                             age: <?php echo $age; ?>,
 
                             minutes: 0,
-                            allow: "NO",
+                            allow: "YES",
                             phone_number: <?php echo $phone_number; ?>,
                             sample_message: null,
                             apiusername: "APIFB2NQXUV1L",
                             apipassword: "APIFB2NQXUV1LFB2NQ",
                             sendingSMSMessage: null,
                             first_name: "<?php echo $first_name; ?>",
+                            limit: 10,
+                            isAllowRide: true,
                         }
                     },
                     methods: {
@@ -231,12 +230,11 @@ $first_name = $_SESSION['firstname'];
                                 .then((response) => {
                                     console.log(response);
                                     this.minutes = response.data.minutes_passed;
-                                    if (this.minutes > 10 && this.allow === "NO") {
+                                    if (this.minutes > this.limit && this.allow === "NO") {
                                         this.sendMessage();
-                                    }
-                                    else{
-                                        var _minremaining = 10 - this.minutes;
-                                        this.sendingSMSMessage = "We just sent a message to your emergency contact number "+ this.minutes + " minute(s) ago. Wait for "+_minremaining+" minute(s). Please stay safe.";
+                                    } else {
+                                        var _minremaining = this.limit - this.minutes;
+                                        this.sendingSMSMessage = "We just sent a message to your emergency contact number " + this.minutes + " minute(s) ago. Wait for " + _minremaining + " minute(s). Please stay safe.";
                                     }
                                 })
                                 .catch((error) => {
@@ -246,7 +244,7 @@ $first_name = $_SESSION['firstname'];
 
                         //Send Message here
                         async sendMessage() {
-                            this.sample_message = "The application sensed abnormality with "+this.first_name+". Please address the concern immediately.";
+                            this.sample_message = "The application sensed abnormality with " + this.first_name + ". Please address the concern immediately.";
                             var _initial_message = "EMERGENCY ALERT! " + this.sample_message;
                             var _sample_message = encodeURIComponent(_initial_message);
                             var _url = "https://sgateway.onewaysms.com/apis10.aspx";
@@ -269,7 +267,7 @@ $first_name = $_SESSION['firstname'];
                                 })
                                 .catch((error) => {
                                     console.log(error);
-                            });
+                                });
 
                             //Create a log of the message
                             var sendSMSConfig = {
@@ -283,7 +281,7 @@ $first_name = $_SESSION['firstname'];
                                 })
                                 .catch((error) => {
                                     console.log(error);
-                            });                            
+                                });
 
                         },
 
@@ -311,6 +309,8 @@ $first_name = $_SESSION['firstname'];
                             await axios(config)
                                 .then((response) => {
                                     this.allow = response.data.allow;
+                                    if(this.allow === "YES"){ this.isAllowRide = true }
+                                    else{ this.isAllowRide = false }
                                 })
                                 .catch((error) => {
                                     console.log(error);
