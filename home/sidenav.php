@@ -10,7 +10,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tablet-alt"></i></div>
                             Vital Signs Monitoring
                         </a>     
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#" style="display: none;">
                             <div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
                             Set Date and Time for Long Ride
                         </a>   
@@ -18,13 +18,18 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-biking"></i></div>
                             Lond Ride Checklist
                         </a>  
+                        <a class="nav-link" href="start_ride_now.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-flag"></i></div>
+                            Start Long Ride Now
+                        </a>  
+
                         <a class="nav-link" href="vital_signs.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-line"></i></div>
                             Vital Signs Log
                         </a>  
 
                         <a class="nav-link" href="sample_sms.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-comment"></i></div>
                             Sample SMS
                         </a>                            
                         

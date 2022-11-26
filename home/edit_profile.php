@@ -6,11 +6,11 @@ $newCheckUser = $checkUser->fetch_array();
 $first_name = $newCheckUser['firstname'];
 $last_name = $newCheckUser['lastname'];
 $user_address = $newCheckUser['user_address'];
-$phone_number = $newCheckUser['phone_number'];
 $emergency_contact_name = $newCheckUser['emergency_contact_name'];
 $emergency_contact_number = $newCheckUser['emergency_contact_number'];
 $relationship = $newCheckUser['relationship'];
 $email = $newCheckUser['email'];
+$date_of_birth = $newCheckUser['date_of_birth'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,12 +94,18 @@ $email = $newCheckUser['email'];
                                         </div>
 
                                         <div class="row mb-3">
-                                            <div class="col-md-6" style="display: none;">
+                                            <div class="col-md-6" style=" ">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" type="number" placeholder="Phone Number" name="phone_number" value="<?php echo $user_address; ?>" />
-                                                    <label for="email">Phone Number - e.g 639847038451</label>
+                                                    <input class="form-control" type="date" placeholder="Date of Birth" name="date_of_birth" value="<?php echo $date_of_birth; ?>" />
+                                                    <label for="email">Date of Birth</label>
                                                 </div>
                                             </div>
+
+                                            <div class="col-md-6" style=" ">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <label for="email">DOB: <?php echo $date_of_birth; ?></label>
+                                                </div>
+                                            </div>                                            
 
                                         </div>
 

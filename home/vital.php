@@ -1,10 +1,14 @@
 <?php
 require_once("process_index.php");
-$devices = $mysqli->query("SELECT * FROM devices") or die($mysqli->error);
-$device = $devices->fetch_array();
-$temperatures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
-$humidity = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
-$moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
+$date_of_birth = $_SESSION['date_of_birth'];
+$current_date = $date = date('Y-m-d H:i:s');
+$date1 = new DateTime($date_of_birth);
+$date2 = new DateTime($current_date);
+$year = $date1->diff($date2);
+$age = $year->y;
+$user_id = $_SESSION['user_id'];
+$getCurrentVital = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id' ORDER BY id DESC LIMIT 1") or die($mysqli->error);
+$currentVital = $getCurrentVital->fetch_array();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,12 +47,12 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
 
                     <div class="row">
                     <div class="col-xl-12">
-                            <h5>Hi Mark! Good day.</h5>
+                            <h5>Hi <?php echo $_SESSION['firstname']; ?>! Good day.</h5>
                             <h6>Here are your vital signs today. (<?php echo date("Y/m/d"); ?>)</h6>
                         </div>
-                        <div class="col-xl-3">
+                        <div class="col-xl-3" style="display: none;">
                             <label>Age</label>
-                            <input type="text" class="form-control" v-model="age">
+                            <input type="text" class="form-control" v-model="age" readonly>
                         </div>
 
                         <div class="col-xl-3">
@@ -97,12 +101,12 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
                     el: "#vueApp",
                     data() {
                         return {
-                            age: 1,
-                            blood_pressure_systolic: 1,
-                            blood_pressure_diastolic: 1,
-                            blood_pressure: 1,
-                            heart_rate: 1,
-                            respiration: 1,
+                            age: <?php echo $age; ?>,
+                            blood_pressure_systolic: <?php echo $currentVital['systolic']; ?>,
+                            blood_pressure_diastolic: <?php echo $currentVital['diastolic']; ?>,
+                            // blood_pressure: 100,
+                            heart_rate: <?php echo $currentVital['heart_rate']; ?>,
+                            respiration: <?php echo $currentVital['respiration']; ?>,
 
                             allow: "yes",
                             suggestions: "",
@@ -122,8 +126,8 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
                             var data = new FormData();
 
                             data.append("age", this.age);
-                            data.append("blood_pressure_systolic", this.blood_pressure);
-                            data.append("blood_pressure_diastolic", this.blood_pressure);
+                            data.append("blood_pressure_systolic", this.blood_pressure_systolic);
+                            data.append("blood_pressure_diastolic", this.blood_pressure_diastolic);
                             data.append("heart_rate", this.heart_rate);
                             data.append("respiration", this.respiration);
 
@@ -132,7 +136,7 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
                             var config = {
                                 method: "post",
                                 url: "https://floating-everglades-04272.herokuapp.com/get-suggestion",
-                                headers: {},
+                                headers: {'Content-Type': 'application/json'},
                                 data: data,
                             };
 
@@ -154,66 +158,10 @@ $moistures = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
                     },
                     async created() {
                         console.log("vue here!");
-                    }
-                });
-            </script>
-            <script>
-                // Humidity
-                var ctx = document.getElementById("humidityChart");
-                var myLineChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        // labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 14"],
-                        labels: [<?php while ($humid = mysqli_fetch_array($humidity)) {
-                                        echo "\"" . $humid['time_log'] . "\",";
-                                    }  ?>],
-                        datasets: [{
-                            label: "Temperature",
-                            lineTension: 0.3,
-                            backgroundColor: "rgba(2,117,216,0.2)",
-                            borderColor: "rgba(2,117,216,1)",
-                            pointRadius: 5,
-                            pointBackgroundColor: "rgba(2,117,216,1)",
-                            pointBorderColor: "rgba(255,255,255,0.8)",
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: "rgba(2,117,216,1)",
-                            pointHitRadius: 50,
-                            pointBorderWidth: 2,
-                            data: [<?php
-                                    $humidity = $mysqli->query("SELECT * FROM logs") or die($mysqli->error);
-                                    while ($humid = mysqli_fetch_array($humidity)) {
-                                        echo $humid['humidity'] . ",";
-                                    }  ?>],
-                        }],
                     },
-                    options: {
-                        scales: {
-                            xAxes: [{
-                                time: {
-                                    unit: 'date'
-                                },
-                                gridLines: {
-                                    display: false
-                                },
-                                ticks: {
-                                    maxTicksLimit: 7
-                                }
-                            }],
-                            yAxes: [{
-                                ticks: {
-                                    min: 0,
-                                    max: 110,
-                                    maxTicksLimit: 5
-                                },
-                                gridLines: {
-                                    color: "rgba(0, 0, 0, .125)",
-                                }
-                            }],
-                        },
-                        legend: {
-                            display: true
-                        }
-                    }
+                    async mounted() {
+                        this.validatePredictProgram();
+                    },
                 });
             </script>
 </body>

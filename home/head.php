@@ -20,6 +20,13 @@
     <!-- icon-->
     <link rel="icon" href="./assets/img/favicon.png" sizes="16x16">
 
+    <!-- LeafLet -->
+    <script src="./js/leaflet/leaflet.js"></script>
+    <script src="./js/leaflet/mapbox-gl.js"></script>
+    <script src="./js/leaflet/leaflet-mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css" />
+    <link rel="stylesheet" href="./css/mapbox-gl.css" />
+
     <!--Vue Support-->
     <script src="./js/vue/vue.min.js"></script>
 

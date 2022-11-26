@@ -13,5 +13,3 @@
     $mysqli = new mysqli($host,$username,$password,$database) or die(mysqli_error($mysqli));
 
 ?>
-
-<!-- theskqqb_ride_app_database -->
