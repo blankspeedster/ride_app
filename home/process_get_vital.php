@@ -3,7 +3,7 @@ include("dbh.php");
 //Get Vital
 if (isset($_GET['getVital'])) {
     $user_id = $_GET["getVital"];
-    $getVitals = mysqli_query($mysqli, "SELECT * FROM user_logs WHERE user_id = '$user_id' ORDER BY date_time DESC LIMIT 1");
+    $getVitals = mysqli_query($mysqli, "SELECT * FROM user_logs WHERE user_id = '$user_id' ORDER BY id DESC LIMIT 1");
     $vital = $getVitals->fetch_array();
     $response[] = array("diastolic"=>$vital['diastolic'], "systolic"=>$vital['systolic'], "heart_rate"=>$vital['heart_rate'], "respiration"=>$vital['respiration']);
     echo json_encode($response[0]);
