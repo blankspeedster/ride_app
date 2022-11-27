@@ -15,9 +15,9 @@
                             Set Date and Time for Long Ride
                         </a>   
                         <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-biking"></i></div>
-                            Lond Ride Checklist
-                        </a>  
+                            <div class="sb-nav-link-icon"><i class="fas fa-biking"></i></dvi>
+                            Long Ride Settings
+                        </a>
                         <a class="nav-link" href="start_ride_now.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-flag"></i></div>
                             Start Long Ride Now
