@@ -52,6 +52,18 @@
             $mysqli->query("INSERT INTO users
             (firstname, lastname, user_address, emergency_contact_name, emergency_contact_number, relationship, email, user_password)
             VALUES ('$firstName', '$lastName', '$address', '$emergencyContactName', '$emergencyContactNumber', '$emergencyRelationship', '$email', '$password')") or die ($mysqli->error);
+
+            //Get lsat inserted id
+            $user_id = $mysqli->insert_id;
+            
+            //Get current date and time
+            $date = date_default_timezone_set('Australia/Sydney');
+            $current_date = date('Y-m-d H:i:s');
+            
+            //Insert message to the database
+            $mysqli->query("INSERT INTO message_sent
+            (date_time, user_id)
+            VALUES ('$current_date', '$user_id')") or die ($mysqli->error);            
         }
 
         header("location: register.php");
