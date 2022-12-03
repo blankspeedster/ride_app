@@ -104,10 +104,22 @@ $date_of_birth = $newCheckUser['date_of_birth'];
                                             <div class="col-md-6" style=" ">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <label for="email">DOB: <?php echo $date_of_birth; ?></label>
-                                                </div>
-                                            </div>                                            
-
+                                                </div>          
+                                            </div>          
                                         </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6" style=" ">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <select class="form-control">
+                                                        <option disabled selected>Select Type of Smarwatch</option>
+                                                        <option>Apple Series Watch (Apple Health and Fitness)</option>
+                                                        <option>Android Smart Watch (Google Health Fit)</option>
+                                                    </select>
+                                                </div>
+                                            </div>     
+                                        </div>
+
 
                                         <div class="row mb-3">
                                             <div class="col-md-12">

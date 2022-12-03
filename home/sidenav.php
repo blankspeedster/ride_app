@@ -14,7 +14,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
                             Set Date and Time for Long Ride
                         </a>   
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="long_ride_settings.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-biking"></i></div>
                             Long Ride Settings
                         </a>  

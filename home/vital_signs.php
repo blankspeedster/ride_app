@@ -105,7 +105,7 @@ ON p.device_id = d.id") or die($mysqli->error);
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Day 1</td>
+                                                <td>December 04, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 125<br>
                                                     Blood Pressure Diastolic: 80<br>
@@ -115,7 +115,7 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Day 2</td>
+                                                <td>December 03, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 128<br>
                                                     Blood Pressure Diastolic: 80<br>
@@ -125,7 +125,7 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Day 3</td>
+                                                <td>December 02, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 120<br>
                                                     Blood Pressure Diastolic: 70<br>
@@ -135,7 +135,7 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Day 4</td>
+                                                <td>December 01, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 105<br>
                                                     Blood Pressure Diastolic: 80<br>
@@ -145,7 +145,7 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Day 5</td>
+                                                <td>November 30, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 100<br>
                                                     Blood Pressure Diastolic: 70<br>

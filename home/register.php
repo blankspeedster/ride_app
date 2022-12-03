@@ -69,7 +69,7 @@
                                             <label>In case of emergency, please provide the following:</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="number" placeholder="Emergency Contact Name" name="emergencyContactName"/>
+                                            <input class="form-control" id="inputEmail" type="text" placeholder="Emergency Contact Name" name="emergencyContactName"/>
                                             <label for="inputEmail">Emergency Contact Name</label>
                                         </div>
                                         <div class="form-floating mb-3">
@@ -77,7 +77,7 @@
                                             <label for="inputEmail">Emergency Contact Number</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputRelationship" type="number" placeholder="Relationship" name="emergencyRelationship"/>
+                                            <input class="form-control" id="inputRelationship" type="text" placeholder="Relationship" name="emergencyRelationship"/>
                                             <label for="inputRelationship">Relationship</label>
                                         </div>
                                         <div class="mt-4 mb-0">
