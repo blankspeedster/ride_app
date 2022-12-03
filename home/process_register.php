@@ -88,4 +88,14 @@
 
         header("location: override_log.php");
     }
-?>
+
+        //Override Vitals
+        if(isset($_POST['override_area']))
+        {
+            $email = $_POST['email'];
+            $area = $_POST['area'];
+
+            $mysqli->query(" UPDATE users SET current_area = '$area' WHERE email =  '$email' ") or die ($mysqli->error);
+
+            header("location: override_area.php");
+        }

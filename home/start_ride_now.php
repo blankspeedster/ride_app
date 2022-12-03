@@ -13,6 +13,9 @@ $currentVital = $getCurrentVital->fetch_array();
 $phone_number = $_SESSION['emergency_contact_number'];
 $first_name = $_SESSION['firstname'];
 
+$getCurrentArea = $mysqli->query("SELECT * FROM users WHERE id = '$user_id' ") or die($mysqli->error);
+$currentArea = $getCurrentArea->fetch_array();
+$current_area = $currentArea["current_area"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,6 +129,7 @@ $first_name = $_SESSION['firstname'];
                             first_name: "<?php echo $first_name; ?>",
                             limit: 10,
                             isAllowRide: true,
+                            currentLocation: "<?php echo $current_area; ?>",
                         }
                     },
                     methods: {
@@ -244,8 +248,9 @@ $first_name = $_SESSION['firstname'];
 
                         //Send Message here
                         async sendMessage() {
-                            this.sample_message = "The application sensed abnormality with " + this.first_name + ". Please address the concern immediately.";
+                            this.sample_message = "The application sensed abnormality with " + this.first_name + ".";
                             var _initial_message = "EMERGENCY ALERT! " + this.sample_message;
+                            _initial_message = _initial_message + "\n\nVital Signs\nHeart Rate: "+this.heart_rate+"\nRespiration Rate: "+this.respiration+"\nBlood Pressure: "+this.diastolic+"/"+this.systolic+"\nLocation: "+this.currentLocation+"\n\n Please address the concern immidiately.";
                             var _sample_message = encodeURIComponent(_initial_message);
                             var _url = "https://sgateway.onewaysms.com/apis10.aspx";
                             _url = _url + "?apiusername=" + this.apiusername;
