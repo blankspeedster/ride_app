@@ -250,7 +250,7 @@ $current_area = $currentArea["current_area"];
                         async sendMessage() {
                             this.sample_message = "The application sensed abnormality with " + this.first_name + ".";
                             var _initial_message = "EMERGENCY ALERT! " + this.sample_message;
-                            _initial_message = _initial_message + "\n\nVital Signs\nHeart Rate: "+this.heart_rate+"\nRespiration Rate: "+this.respiration+"\nBlood Pressure: "+this.diastolic+"/"+this.systolic+"\nLocation: "+this.currentLocation+"\n\n Please address the concern immidiately.";
+                            _initial_message = _initial_message + "\n\nVital Signs\nHeart Rate: "+this.heart_rate+"\nRespiration Rate: "+this.respiration+"\nBlood Pressure: "+this.diastolic+"/"+this.systolic+"\nLocation: "+this.currentLocation+"\n\n Please address the concern immediately.";
                             var _sample_message = encodeURIComponent(_initial_message);
                             var _url = "https://sgateway.onewaysms.com/apis10.aspx";
                             _url = _url + "?apiusername=" + this.apiusername;
