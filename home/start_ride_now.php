@@ -11,6 +11,7 @@ $getCurrentVital = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$use
 $currentVital = $getCurrentVital->fetch_array();
 
 $phone_number = $_SESSION['emergency_contact_number'];
+$emergency_contact_name = $_SESSION['emergency_contact_name'];
 $first_name = $_SESSION['firstname'];
 
 $getCurrentArea = $mysqli->query("SELECT * FROM users WHERE id = '$user_id' ") or die($mysqli->error);
@@ -127,6 +128,7 @@ $current_area = $currentArea["current_area"];
                             apipassword: "APIFB2NQXUV1LFB2NQ",
                             sendingSMSMessage: null,
                             first_name: "<?php echo $first_name; ?>",
+                            contact_name: "<?php echo $emergency_contact_name; ?>",
                             limit: 10,
                             isAllowRide: true,
                             currentLocation: "<?php echo $current_area; ?>",
@@ -238,7 +240,8 @@ $current_area = $currentArea["current_area"];
                                         this.sendMessage();
                                     } else {
                                         var _minremaining = this.limit - this.minutes;
-                                        this.sendingSMSMessage = "We just sent a message to your emergency contact number " + this.minutes + " minute(s) ago. Wait for " + _minremaining + " minute(s). Please stay safe.";
+                                        // this.sendingSMSMessage = "We just sent a message to your emergency contact number " + this.minutes + " minute(s) ago. Wait for " + _minremaining + " minute(s). Please stay safe.";
+                                        this.sendingSMSMessage = "iResponse sent an SMS to "+ this.contact_name + ". Time remaining " + _minremaining + " minute(s). Please stay safe!"
                                     }
                                 })
                                 .catch((error) => {

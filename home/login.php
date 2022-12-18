@@ -51,6 +51,8 @@
                                     </div>
                                     <div class="card-footer text-center py-3">
                                         <div class="small"><a href="register.php">Need an account? Sign up!</a></div>
+                                        <br>
+                                        <div class="small"><a href="assets/iResponse-v1.apk">Download our android app installer!</a></div>
                                     </div>
                                 </div>
                             </div>

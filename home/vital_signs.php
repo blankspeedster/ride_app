@@ -101,88 +101,96 @@ ON p.device_id = d.id") or die($mysqli->error);
                                             <tr>
                                                 <th>Day #</th>
                                                 <th>Sumarry</th>
+                                                <th>Timestamp</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>December 04, 2022</td>
+                                                <td>December 19, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 125<br>
                                                     Blood Pressure Diastolic: 80<br>
                                                     Heart Rate: 70<br>
                                                     Respiration Rate: 98<br>
-                                                    <label class="text-success"><b>Approve Long Ride</b></label>
+                                                    <label class="text-success"><b>Approved Long Ride</b></label>
                                                 </td>
+                                                <td>12:01:01</td>
                                             </tr>
                                             <tr>
-                                                <td>December 03, 2022</td>
+                                                <td>December 18, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 128<br>
                                                     Blood Pressure Diastolic: 80<br>
                                                     Heart Rate: 80<br>
                                                     Respiration Rate: 98<br>
-                                                    <label class="text-success"><b>Approve Long Ride</b></label>
+                                                    <label class="text-success"><b>Approved Long Ride</b></label>
                                                 </td>
+                                                <td>12:31:00</td>
                                             </tr>
                                             <tr>
-                                                <td>December 02, 2022</td>
+                                                <td>December 17, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 120<br>
                                                     Blood Pressure Diastolic: 70<br>
                                                     Heart Rate: 60<br>
                                                     Respiration Rate: 80<br>
-                                                    <label class="text-danger"><b>Reject Long Ride</b></label>
+                                                    <label class="text-danger"><b>Rejected Long Ride</b></label>
                                                 </td>
+                                                <td>14:01:54</td>
                                             </tr>
                                             <tr>
-                                                <td>December 01, 2022</td>
+                                                <td>December 06, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 105<br>
                                                     Blood Pressure Diastolic: 80<br>
                                                     Heart Rate: 65<br>
                                                     Respiration Rate: 81<br>
-                                                    <label class="text-danger"><b>Reject Long Ride</b></label>
+                                                    <label class="text-danger"><b>Rejected Long Ride</b></label>
                                                 </td>
+                                                <td>11:09:01</td>
                                             </tr>
                                             <tr>
-                                                <td>November 30, 2022</td>
+                                                <td>December 15, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 100<br>
                                                     Blood Pressure Diastolic: 70<br>
                                                     Heart Rate: 65<br>
                                                     Respiration Rate: 85<br>
-                                                    <label class="text-danger"><b>Reject Long Ride</b></label>
+                                                    <label class="text-danger"><b>Rejected Long Ride</b></label>
                                                 </td>
+                                                <td>12:01:01</td>
                                             </tr>
                                             <tr>
-                                                <td>Day 6</td>
+                                                <td>December 14, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 120<br>
                                                     Blood Pressure Diastolic: 80<br>
                                                     Heart Rate: 80<br>
                                                     Respiration Rate: 88<br>
-                                                    <label class="text-success"><b>Approve Long Ride</b></label>
+                                                    <label class="text-success"><b>Approved Long Ride</b></label>
                                                 </td>
+                                                <td>14:25:11</td>
                                             </tr>
                                             <tr>
-                                                <td>Day 7</td>
+                                                <td>December 13, 2022</td>
                                                 <td>
                                                     Blood Pressure Systolic: 120<br>
                                                     Blood Pressure Diastolic: 70<br>
                                                     Heart Rate: 60<br>
                                                     Respiration Rate: 80<br>
-                                                    <label class="text-danger"><b>Reject Long Ride</b></label>
+                                                    <label class="text-danger"><b>Rejected Long Ride</b></label>
                                                 </td>
+                                                <td>16:35:11</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2">
+                                                <td colspan="3">
                                                     <strong>Recommendations:</strong>
                                                     <!-- <hr> --><br>
                                                     <label class="text-success"><b>Yes, Fit for Long Ride</b></label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2">
+                                                <td colspan="3">
                                                     <strong>Suggestions:</strong>
                                                     <br>
 
@@ -191,7 +199,7 @@ ON p.device_id = d.id") or die($mysqli->error);
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2">
+                                                <td colspan="3">
                                                     <br>
                                                     
                                                     <strong>Checklist / Tips:</strong>

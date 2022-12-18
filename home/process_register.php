@@ -19,6 +19,7 @@
             $_SESSION['lastname'] = $newCheckUser["lastname"];
             $_SESSION['date_of_birth'] = $newCheckUser["date_of_birth"];
             $_SESSION['emergency_contact_number'] = $newCheckUser["emergency_contact_number"];
+            $_SESSION['emergency_contact_name'] = $newCheckUser["emergency_contact_name"];
 
             $user_id = $_SESSION['user_id'];
 

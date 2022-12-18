@@ -36,7 +36,18 @@
                         <a class="nav-link" href="edit_profile.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                             Edit Profile
-                        </a>                                                  
+                        </a>    
+
+                        <a class="nav-link" href="pairing_of_device.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
+                            Pairing of Device
+                        </a>    
+
+                        <a class="nav-link" href="user_manual.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
+                            User Manual
+                        </a>    
+                        
                         
 
                         <!-- <div class="sb-sidenav-menu-heading">Interface</div>
