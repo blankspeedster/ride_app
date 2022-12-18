@@ -23,7 +23,7 @@ ON p.device_id = d.id") or die($mysqli->error);
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Pairing of Device</h1>
+                    <h1 class="mt-4">User Manual</h1>
                     <ol class="breadcrumb mb-4">
                         <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                     </ol>
@@ -45,10 +45,6 @@ ON p.device_id = d.id") or die($mysqli->error);
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-tablet-alt"></i>
-                                    Add Device (The application uses third party API from Google)
-                                </div>
                                 <div class="card-body">
                                     <div class="video-container">
                                         <video width="100%" height="100%" src="assets/iResponse-User-Manual.mp4" controls autoplay></video>
