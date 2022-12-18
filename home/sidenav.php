@@ -47,6 +47,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
                             User Manual
                         </a>    
+
+                        <a class="nav-link" href="download_application.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-download"></i></div>
+                            Download Application
+                        </a>    
                         
                         
 
