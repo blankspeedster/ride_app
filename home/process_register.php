@@ -23,7 +23,40 @@
 
             $user_id = $_SESSION['user_id'];
 
-            $mysqli->query("INSERT INTO user_logs(user_id, systolic, diastolic, heart_rate, respiration) VALUES('$user_id','100','100','80', '100') ");
+            # create a variable to check if it is {'Afternoon': 0, 'Evening': 1, 'Morning': 2, 'Night': 3} depending on the time of the day
+            $time_of_day = date('H');
+            if($time_of_day >= 6 && $time_of_day < 12){
+                $time_of_day = 2;
+            }
+            elseif($time_of_day >= 12 && $time_of_day < 18){
+                $time_of_day = 0;
+            }
+            elseif($time_of_day >= 18 && $time_of_day < 24){
+                $time_of_day = 1;
+            }
+            else{
+                $time_of_day = 3;
+            }
+
+            # generate a random number based on date and time
+            $date_time = date('Y-m-d H:i:s');
+            # convert the date_time to an integer we can pass to srand
+            $date_time = strtotime($date_time);
+            srand($date_time);
+            # using random seed to generate random values for the user logs
+            $systolic_bp = rand(60, 100);
+            $diastolic_bp = rand(70, 90);
+            $heart_rate_bpm = rand(60, 100);
+            $hrv = rand(20, 100);
+            $respiration_rate = rand(12, 20);
+            $blood_oxygen_level = rand(95, 100);
+            $ambient_temperature = rand(15, 30);
+            $ambient_noise_level = rand(30, 80);
+            $previous_activity_level = rand(0, 10000);
+
+            $mysqli->query("INSERT INTO user_logs(user_id, systolic_bp, diastolic_bp, heart_rate_bpm, respiration_rate, hrv, blood_oxygen_level, ambient_temperature, ambient_noise_level, time_of_day, previous_activity_level)
+            VALUES ('$user_id', '$systolic_bp', '$diastolic_bp', '$heart_rate_bpm', '$respiration_rate', '$hrv', '$blood_oxygen_level', '$ambient_temperature', '$ambient_noise_level', '$time_of_day', '$previous_activity_level')")
+            or die ($mysqli->error);
 
             header("location: index.php");
         }
@@ -74,18 +107,40 @@
     if(isset($_POST['override_vitals']))
     {
         $email = $_POST['email'];
-        $diastolic = $_POST['diastolic'];
-        $systolic = $_POST['systolic'];
-        $heart_rate = $_POST['heart_rate'];
-        $respiration = $_POST['respiration'];
+
+        $time_of_day = date('H');
+        if($time_of_day >= 6 && $time_of_day < 12){
+            $time_of_day = 2;
+        }
+        elseif($time_of_day >= 12 && $time_of_day < 18){
+            $time_of_day = 0;
+        }
+        elseif($time_of_day >= 18 && $time_of_day < 24){
+            $time_of_day = 1;
+        }
+        else{
+            $time_of_day = 3;
+        }
+
+        $date_time = date('Y-m-d H:i:s');
+        # using random seed to generate random values for the user logs
+        $systolic_bp = $_POST['systolic_bp'];
+        $diastolic_bp = $_POST['diastolic_bp'];
+        $heart_rate_bpm = $_POST['heart_rate_bpm'];
+        $hrv = $_POST['hrv'];
+        $respiration_rate = $_POST['respiration_rate'];
+        $blood_oxygen_level = $_POST['blood_oxygen_level'];
+        $ambient_temperature = $_POST['ambient_temperature'];
+        $ambient_noise_level = $_POST['ambient_noise_level'];
+        $previous_activity_level = $_POST['previous_activity_level'];
 
         $checkUser = $mysqli->query("SELECT * FROM users WHERE email='$email' ")or die ($mysqli->error);
         $newCheckUser = $checkUser->fetch_array();
         $user_id = $newCheckUser['id'];
 
-        $mysqli->query("INSERT INTO user_logs
-            (user_id, systolic, diastolic, heart_rate, respiration)
-            VALUES ('$user_id', '$diastolic', '$systolic', '$heart_rate', '$respiration' )") or die ($mysqli->error);
+        $mysqli->query("INSERT INTO user_logs(user_id, systolic_bp, diastolic_bp, heart_rate_bpm, respiration_rate, hrv, blood_oxygen_level, ambient_temperature, ambient_noise_level, time_of_day, previous_activity_level)
+        VALUES ('$user_id', '$systolic_bp', '$diastolic_bp', '$heart_rate_bpm', '$respiration_rate', '$hrv', '$blood_oxygen_level', '$ambient_temperature', '$ambient_noise_level', '$time_of_day', '$previous_activity_level')")
+        or die ($mysqli->error);
 
         header("location: override_log.php");
     }

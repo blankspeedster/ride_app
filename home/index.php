@@ -9,7 +9,9 @@ $bloodPressureSystolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id =
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
 <?php include("head.php"); ?>
 
 <body class="sb-nav-fixed">
@@ -139,7 +141,7 @@ $bloodPressureSystolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id =
                             data: [<?php
                                     $heartrate = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id'") or die($mysqli->error);
                                     while ($hr = mysqli_fetch_array($heartrate)) {
-                                        echo $hr['heart_rate'] . ",";
+                                        echo $hr['heart_rate_bpm'] . ",";
                                     }  ?>],
                         }],
                     },
@@ -198,7 +200,7 @@ $bloodPressureSystolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id =
                             data: [<?php
                                     $diastolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id'") or die($mysqli->error);
                                     while ($hr = mysqli_fetch_array($diastolic)) {
-                                        echo $hr['diastolic'] . ",";
+                                        echo $hr['systolic_bp'] . ",";
                                     }  ?>],
                         }],
                     },
@@ -255,7 +257,7 @@ $bloodPressureSystolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id =
                             data: [<?php
                                     $systolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id'") or die($mysqli->error);
                                     while ($hr = mysqli_fetch_array($systolic)) {
-                                        echo $hr['systolic'] . ",";
+                                        echo $hr['diastolic_bp'] . ",";
                                     }  ?>],
                         }],
                     },
@@ -314,7 +316,7 @@ $bloodPressureSystolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id =
                             data: [<?php
                                     $respiration = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id'") or die($mysqli->error);
                                     while ($rp = mysqli_fetch_array($respiration)) {
-                                        echo $rp['respiration'] . ",";
+                                        echo $rp['respiration_rate'] . ",";
                                     }  ?>],
                         }],
                     },

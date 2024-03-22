@@ -38,7 +38,7 @@ $currentVital = $getCurrentVital->fetch_array();
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-area me-1"></i>
-                                    Heart Rate
+                                    Heart Rate (BPM)
                                 </div>
                                 <div class="card-body"><canvas id="humidityChart" width="100%" height="40"></canvas></div>
                             </div>
@@ -57,22 +57,53 @@ $currentVital = $getCurrentVital->fetch_array();
 
                         <div class="col-xl-3">
                             <label>Blood Pressure Systolic</label>
-                            <input type="number" class="form-control" v-model="blood_pressure_systolic">
+                            <input type="number" class="form-control" v-model="systolic_bp">
                         </div>
 
                         <div class="col-xl-3">
                             <label>Blood Pressure Diastolic</label>
-                            <input type="number" class="form-control" v-model="blood_pressure_diastolic">
+                            <input type="number" class="form-control" v-model="diastolic_bp">
                         </div>
 
                         <div class="col-xl-3">
-                            <label>Heart Rate</label>
-                            <input type="number" class="form-control" v-model="heart_rate">
+                            <label>Heart Rate (BPM)</label>
+                            <input type="number" class="form-control" v-model="heart_rate_bpm">
                         </div>
 
                         <div class="col-xl-3">
-                            <label>Respiration</label>
-                            <input type="number" class="form-control" v-model="respiration">
+                            <label>Heart Rate Variability (ms)</label>
+                            <input type="number" class="form-control" v-model="hrv">
+                        </div>
+
+                        <div class="col-xl-3">
+                            <label>Respiration Rate</label>
+                            <input type="number" class="form-control" v-model="respiration_rate">
+                        </div>
+
+                        <div class="col-xl-3">
+                            <label>Blood Oxygen Level</label>
+                            <input type="number" class="form-control" v-model="blood_oxygen_level">
+                        </div>
+
+                        <div class="col-xl-3">
+                            <label>Ambient Temperature</label>
+                            <input type="number" class="form-control" v-model="ambient_temperature">
+                        </div>
+
+                        <div class="col-xl-3">
+                            <label>Ambient Noise Level</label>
+                            <input type="number" class="form-control" v-model="ambient_noise_level">
+                        </div>
+
+                        <div class="col-xl-3">
+                            <label>Time of Day</label>
+                            <input type="text" class="form-control" v-model="time_of_day_in_words">
+                        </div>
+
+
+                        <div class="col-xl-3">
+                            <label>Previous Activity Level</label>
+                            <input type="text" class="form-control" v-model="previous_activity_level">
                         </div>
 
                         <div v-if="replied" class="col-md-12">
@@ -177,11 +208,17 @@ $currentVital = $getCurrentVital->fetch_array();
                     data() {
                         return {
                             age: <?php echo $age; ?>,
-                            blood_pressure_systolic: <?php echo $currentVital['systolic']; ?>,
-                            blood_pressure_diastolic: <?php echo $currentVital['diastolic']; ?>,
-                            // blood_pressure: 100,
-                            heart_rate: <?php echo $currentVital['heart_rate']; ?>,
-                            respiration: <?php echo $currentVital['respiration']; ?>,
+                            heart_rate_bpm: <?php echo $currentVital['heart_rate_bpm']; ?>,
+                            hrv: <?php echo $currentVital['hrv']; ?>,
+                            systolic_bp: <?php echo $currentVital['systolic_bp']; ?>,
+                            diastolic_bp: <?php echo $currentVital['diastolic_bp']; ?>,
+                            respiration_rate: <?php echo $currentVital['respiration_rate']; ?>,
+                            blood_oxygen_level: <?php echo $currentVital['blood_oxygen_level']; ?>,
+                            ambient_temperature: <?php echo $currentVital['ambient_temperature']; ?>,
+                            ambient_noise_level: <?php echo $currentVital['ambient_noise_level']; ?>,
+                            time_of_day: <?php echo $currentVital['time_of_day']; ?>,
+                            time_of_day_in_words: "",
+                            previous_activity_level: <?php echo $currentVital['previous_activity_level']; ?>,
 
                             allow: "yes",
                             suggestions: "",
@@ -213,11 +250,36 @@ $currentVital = $getCurrentVital->fetch_array();
                             this.errorMessage = "Loading...";
                             var data = new FormData();
 
+                            // # Heart_Rate_(BPM)
+                            // # HRV_(ms)
+                            // # Systolic_BP_(mmHg)
+                            // # Diastolic_BP_(mmHg)
+                            // # Respiration_Rate_(Breaths_per_Minute)
+                            // # Blood_Oxygen_Level_(SpO2)
+                            // # Ambient_Temperature_(C)
+                            // # Ambient_Noise_Level_(dB)
+                            // # Time_of_Day
+                            // # Previous_Activity_Level_(Steps)
+                            // # Age
+                            // # Is_Fit
+                            
+                            data.append("heart_rate_bpm", this.heart_rate_bpm);
+                            data.append("hrv", this.hrv);
+                            data.append("systolic_bp", this.systolic_bp);
+                            data.append("diastolic_bp", this.diastolic_bp);
+                            data.append("respiration_rate", this.respiration_rate);
+                            data.append("blood_oxygen_level", this.blood_oxygen_level);
+                            data.append("ambient_temperature", this.ambient_temperature);
+                            data.append("ambient_noise_level", this.ambient_noise_level);
+                            data.append("time_of_day", this.time_of_day);
+                            data.append("previous_activity_level", this.previous_activity_level);
                             data.append("age", this.age);
-                            data.append("blood_pressure_systolic", this.blood_pressure_systolic);
-                            data.append("blood_pressure_diastolic", this.blood_pressure_diastolic);
-                            data.append("heart_rate", this.heart_rate);
-                            data.append("respiration", this.respiration);
+
+                            // data.append("age", this.age);
+                            // data.append("blood_pressure_systolic", this.blood_pressure_systolic);
+                            // data.append("blood_pressure_diastolic", this.blood_pressure_diastolic);
+                            // data.append("heart_rate", this.heart_rate);
+                            // data.append("respiration", this.respiration);
 
                             // https://floating-everglades-04272.herokuapp.com/
                             // http://127.0.0.1:5000/
@@ -251,6 +313,16 @@ $currentVital = $getCurrentVital->fetch_array();
                     },
                     async mounted() {
                         this.validatePredictProgram();
+                        //modify time_of_day_in_words here:
+                        if (this.time_of_day === 0) {
+                            this.time_of_day_in_words = "Afternoon";
+                        } else if (this.time_of_day === 1) {
+                            this.time_of_day_in_words = "Evening";
+                        } else if (this.time_of_day === 2) {
+                            this.time_of_day_in_words = "Morning";
+                        } else if (this.time_of_day === 3) {
+                            this.time_of_day_in_words = "Night";
+                        }
                     },
                 });
             </script>
@@ -279,7 +351,7 @@ $currentVital = $getCurrentVital->fetch_array();
                             data: [<?php
                                     $heartrate = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id'") or die($mysqli->error);
                                     while ($hr = mysqli_fetch_array($heartrate)) {
-                                        echo $hr['heart_rate'] . ",";
+                                        echo $hr['heart_rate_bpm'] . ",";
                                     }  ?>],
                         }],
                     },
@@ -338,7 +410,7 @@ $currentVital = $getCurrentVital->fetch_array();
                             data: [<?php
                                     $diastolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id'") or die($mysqli->error);
                                     while ($hr = mysqli_fetch_array($diastolic)) {
-                                        echo $hr['diastolic'] . ",";
+                                        echo $hr['diastolic_bp'] . ",";
                                     }  ?>],
                         }],
                     },
@@ -395,7 +467,7 @@ $currentVital = $getCurrentVital->fetch_array();
                             data: [<?php
                                     $systolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id'") or die($mysqli->error);
                                     while ($hr = mysqli_fetch_array($systolic)) {
-                                        echo $hr['systolic'] . ",";
+                                        echo $hr['systolic_bp'] . ",";
                                     }  ?>],
                         }],
                     },
@@ -454,7 +526,7 @@ $currentVital = $getCurrentVital->fetch_array();
                             data: [<?php
                                     $respiration = $mysqli->query("SELECT * FROM user_logs WHERE user_id = '$user_id'") or die($mysqli->error);
                                     while ($rp = mysqli_fetch_array($respiration)) {
-                                        echo $rp['respiration'] . ",";
+                                        echo $rp['respiration_rate'] . ",";
                                     }  ?>],
                         }],
                     },

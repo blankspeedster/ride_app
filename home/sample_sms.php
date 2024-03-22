@@ -1,6 +1,7 @@
 <?php
 require_once("process_index.php");
 $emergency_contact_number = $_SESSION['emergency_contact_number'];
+// echo $_SESSION['emergency_contact_number'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +55,7 @@ $emergency_contact_number = $_SESSION['emergency_contact_number'];
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
                                                 <input class="form-control" id="phone_number" type="text" placeholder="Phone Number (include aread code)" name="phone_number"
-                                                 v-model="phone_number" disabled />
+                                                 v-model="phone_number" />
                                                 <label for="phone_number">Phone Number</label>
                                             </div>
                                         </div>

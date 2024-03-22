@@ -114,11 +114,18 @@ $current_area = $currentArea["current_area"];
                             long: null,
                             user_id: <?php echo $user_id; ?>,
                             // this part for the vitals
-                            diastolic: <?php echo  $currentVital['diastolic']; ?>,
-                            systolic: <?php echo  $currentVital['systolic']; ?>,
-                            heart_rate: <?php echo  $currentVital['heart_rate']; ?>,
-                            respiration: <?php echo  $currentVital['respiration']; ?>,
                             age: <?php echo $age; ?>,
+                            heart_rate_bpm: <?php echo $currentVital['heart_rate_bpm']; ?>,
+                            hrv: <?php echo $currentVital['hrv']; ?>,
+                            systolic_bp: <?php echo $currentVital['systolic_bp']; ?>,
+                            diastolic_bp: <?php echo $currentVital['diastolic_bp']; ?>,
+                            respiration_rate: <?php echo $currentVital['respiration_rate']; ?>,
+                            blood_oxygen_level: <?php echo $currentVital['blood_oxygen_level']; ?>,
+                            ambient_temperature: <?php echo $currentVital['ambient_temperature']; ?>,
+                            ambient_noise_level: <?php echo $currentVital['ambient_noise_level']; ?>,
+                            time_of_day: <?php echo $currentVital['time_of_day']; ?>,
+                            time_of_day_in_words: "",
+                            previous_activity_level: <?php echo $currentVital['previous_activity_level']; ?>,
 
                             minutes: 0,
                             allow: "YES",
@@ -129,7 +136,7 @@ $current_area = $currentArea["current_area"];
                             sendingSMSMessage: null,
                             first_name: "<?php echo $first_name; ?>",
                             contact_name: "<?php echo $emergency_contact_name; ?>",
-                            limit: 10,
+                            limit: 2,
                             isAllowRide: true,
                             currentLocation: "<?php echo $current_area; ?>",
                         }
@@ -214,10 +221,16 @@ $current_area = $currentArea["current_area"];
                                 .request(options)
                                 .then((response) => {
                                     console.log(response.data);
-                                    this.diastolic = response.data.diastolic;
-                                    this.systolic = response.data.systolic;
-                                    this.heart_rate = response.data.heart_rate;
-                                    this.respiration = response.data.respiration;
+                                    this.heart_rate_bpm = response.data.heart_rate_bpm;
+                                    this.hrv = response.data.hrv;
+                                    this.systolic_bp = response.data.systolic_bp;
+                                    this.diastolic_bp = response.data.diastolic_bp;
+                                    this.respiration_rate = response.data.respiration_rate;
+                                    this.blood_oxygen_level = response.data.blood_oxygen_level;
+                                    this.ambient_temperature = response.data.ambient_temperature;
+                                    this.ambient_noise_level = response.data.ambient_noise_level;
+                                    this.time_of_day = response.data.time_of_day;
+                                    this.previous_activity_level = response.data.previous_activity_level;
                                     this.predictAllowRide();
                                 })
                                 .catch((error) => {
@@ -241,7 +254,7 @@ $current_area = $currentArea["current_area"];
                                     } else {
                                         var _minremaining = this.limit - this.minutes;
                                         // this.sendingSMSMessage = "We just sent a message to your emergency contact number " + this.minutes + " minute(s) ago. Wait for " + _minremaining + " minute(s). Please stay safe.";
-                                        this.sendingSMSMessage = "iResponse sent an SMS to "+ this.contact_name + ". Time remaining " + _minremaining + " minute(s). Please stay safe!"
+                                        this.sendingSMSMessage = "iResponse sent an SMS to "+ this.contact_name + ". Time remaining for another SMS is " + _minremaining + " minute(s). Please stay safe!"
                                     }
                                 })
                                 .catch((error) => {
@@ -251,9 +264,10 @@ $current_area = $currentArea["current_area"];
 
                         //Send Message here
                         async sendMessage() {
+                            console.log("Sending a message");
                             this.sample_message = "The application sensed abnormality with " + this.first_name + ".";
                             var _initial_message = "EMERGENCY ALERT! " + this.sample_message;
-                            _initial_message = _initial_message + "\n\nVital Signs\nHeart Rate: "+this.heart_rate+"\nRespiration Rate: "+this.respiration+"\nBlood Pressure: "+this.diastolic+"/"+this.systolic+"\nLocation: "+this.currentLocation+"\n\n Please address the concern immediately.";
+                            _initial_message = _initial_message + "\n\nVital Signs\nHeart Rate (BPM): "+this.heart_rate_bpm+"\nRespiration Rate: "+this.respiration_rate+"\nBlood Pressure: "+this.diastolic_bp+"/"+this.systolic_bp+"\nBlood Oxygen Level: "+this.blood_oxygen_level+"\nAmbient Temperature: "+this.ambient_temperature+"\nAmbient Noise Level: "+this.ambient_noise_level+"\nLocation: "+this.currentLocation+"\n\n Please address the concern immediately.";
                             var _sample_message = encodeURIComponent(_initial_message);
                             var _url = "https://sgateway.onewaysms.com/apis10.aspx";
                             _url = _url + "?apiusername=" + this.apiusername;
@@ -295,15 +309,22 @@ $current_area = $currentArea["current_area"];
 
                         //Send Vitals
                         async predictAllowRide() {
+                            console.log("Predicting Allow Ride");
                             this.fireError = true;
                             this.errorMessage = "Loading...";
                             var data = new FormData();
 
+                            data.append("heart_rate_bpm", this.heart_rate_bpm);
+                            data.append("hrv", this.hrv);
+                            data.append("systolic_bp", this.systolic_bp);
+                            data.append("diastolic_bp", this.diastolic_bp);
+                            data.append("respiration_rate", this.respiration_rate);
+                            data.append("blood_oxygen_level", this.blood_oxygen_level);
+                            data.append("ambient_temperature", this.ambient_temperature);
+                            data.append("ambient_noise_level", this.ambient_noise_level);
+                            data.append("time_of_day", this.time_of_day);
+                            data.append("previous_activity_level", this.previous_activity_level);
                             data.append("age", this.age);
-                            data.append("blood_pressure_systolic", this.diastolic);
-                            data.append("blood_pressure_diastolic", this.systolic);
-                            data.append("heart_rate", this.heart_rate);
-                            data.append("respiration", this.respiration);
 
                             var config = {
                                 method: "post",
@@ -316,6 +337,7 @@ $current_area = $currentArea["current_area"];
 
                             await axios(config)
                                 .then((response) => {
+                                    console.log(response.data)
                                     this.allow = response.data.allow;
                                     if(this.allow === "YES"){ this.isAllowRide = true }
                                     else{ this.isAllowRide = false }
@@ -351,6 +373,16 @@ $current_area = $currentArea["current_area"];
                         this.loopGetLocation();
                         // this.predictAllowRide();
                         // this.getVitals();
+                        //modify time_of_day_in_words here:
+                        if (this.time_of_day === 0) {
+                            this.time_of_day_in_words = "Afternoon";
+                        } else if (this.time_of_day === 1) {
+                            this.time_of_day_in_words = "Evening";
+                        } else if (this.time_of_day === 2) {
+                            this.time_of_day_in_words = "Morning";
+                        } else if (this.time_of_day === 3) {
+                            this.time_of_day_in_words = "Night";
+                        }
                     },
                 });
             </script>

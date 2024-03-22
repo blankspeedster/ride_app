@@ -5,7 +5,17 @@ if (isset($_GET['getVital'])) {
     $user_id = $_GET["getVital"];
     $getVitals = mysqli_query($mysqli, "SELECT * FROM user_logs WHERE user_id = '$user_id' ORDER BY id DESC LIMIT 1");
     $vital = $getVitals->fetch_array();
-    $response[] = array("diastolic"=>$vital['diastolic'], "systolic"=>$vital['systolic'], "heart_rate"=>$vital['heart_rate'], "respiration"=>$vital['respiration']);
+    $response[] = array(
+        "diastolic_bp"=>$vital['diastolic_bp'],
+        "systolic_bp"=>$vital['systolic_bp'],
+        "heart_rate_bpm"=>$vital['heart_rate_bpm'],
+        "respiration_rate"=>$vital['respiration_rate'],
+        "hrv"=>$vital['hrv'],
+        "blood_oxygen_level"=>$vital['blood_oxygen_level'],
+        "ambient_temperature"=>$vital['ambient_temperature'],
+        "ambient_noise_level"=>$vital['ambient_noise_level'],
+        "time_of_day"=>$vital['time_of_day'],
+        "previous_activity_level"=>$vital['previous_activity_level']);
     echo json_encode($response[0]);
 }
 
