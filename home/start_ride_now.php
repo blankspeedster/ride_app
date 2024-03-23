@@ -254,7 +254,7 @@ $current_area = $currentArea["current_area"];
                                     } else {
                                         var _minremaining = this.limit - this.minutes;
                                         // this.sendingSMSMessage = "We just sent a message to your emergency contact number " + this.minutes + " minute(s) ago. Wait for " + _minremaining + " minute(s). Please stay safe.";
-                                        this.sendingSMSMessage = "iResponse sent an SMS to "+ this.contact_name + ". Time remaining for another SMS is " + _minremaining + " minute(s). Please stay safe!"
+                                        this.sendingSMSMessage = "FitToRide sent an SMS to "+ this.contact_name + ". Time remaining for another SMS is " + _minremaining + " minute(s). Please stay safe!"
                                     }
                                 })
                                 .catch((error) => {

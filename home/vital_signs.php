@@ -24,7 +24,7 @@ ON p.device_id = d.id") or die($mysqli->error);
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Vital Signs Log</h1>
-                    <h5>Hi Mark! Good day.</h5>
+                    <h5>Hi Ronie! Good day.</h5>
                     <h6>Here are your vital signs today. (<?php echo date("Y/m/d"); ?>)</h6>
                     <ol class="breadcrumb mb-4">
                         <!-- <li class="breadcrumb-item active">Dashboard</li> -->

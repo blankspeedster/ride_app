@@ -12,15 +12,17 @@
     <head>
         <meta charset="utf-8" />
         <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#0d6efd">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login - iResponse</title>
+        <title>FitToRide - Login</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-success">
+    <body class="bg-primary">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -28,8 +30,12 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <img src="./assets/iresponse_logo.png" style="min-height: 100px; max-height: 100px;">
-                                    <div class="card-header" style="background-color: white !important;"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <img src="./assets/iresponse_logo.png" style="min-height: 100px;">
+                                    <div class="card-header" style="background-color: white !important;">
+                                    <h3 class="text-center font-weight-light my-4">
+                                        Login - FitToRide
+                                    </h3>
+                                    </div>
                                     <div class="card-body">
                                         <form method="post" action="process_register.php">
                                             <div class="form-floating mb-3">
@@ -53,7 +59,7 @@
                                     <div class="card-footer text-center py-3">
                                         <div class="small"><a href="register.php">Need an account? Sign up!</a></div>
                                         <br>
-                                        <div class="small"><a href="assets/iResponse-v1.apk">Download our android app installer!</a></div>
+                                        <!-- <div class="small"><a href="assets/iResponse-v1.apk">Download our android app installer!</a></div> -->
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +71,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; iResponse <?php echo date("Y"); ?></div>
+                            <div class="text-muted">Copyright &copy; FitToRide <?php echo date("Y"); ?></div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

@@ -6,12 +6,15 @@
     }
 ?>
 <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0d6efd">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>iResponse - Dashboard</title>
+    <title>FitToRide - Dashboard</title>
     
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
@@ -35,7 +38,7 @@
 
     <style>
         .sb-sidenav-menu {
-            background-color: #468b48;
+            background-color: #0d6efd;
         }
 
         .sb-sidenav-dark .sb-sidenav-menu .nav-link {
@@ -51,7 +54,7 @@
         }
 
         .sb-sidenav-dark .sb-sidenav-footer {
-            background-color: #468b48;
+            background-color: #0d6efd;
         }
     </style>
 </head>

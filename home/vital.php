@@ -274,7 +274,7 @@ $currentVital = $getCurrentVital->fetch_array();
                             data.append("time_of_day", this.time_of_day);
                             data.append("previous_activity_level", this.previous_activity_level);
                             data.append("age", this.age);
-
+                            console.log(data);
                             // data.append("age", this.age);
                             // data.append("blood_pressure_systolic", this.blood_pressure_systolic);
                             // data.append("blood_pressure_diastolic", this.blood_pressure_diastolic);

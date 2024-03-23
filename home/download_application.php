@@ -23,7 +23,7 @@ ON p.device_id = d.id") or die($mysqli->error);
         <div id="layoutSidenav_content">
             <main>
                 <div class="containerd-fluid px-4">
-                    <h1 class="mt-4">Download iResponse Application</h1>
+                    <h1 class="mt-4">Download FitToRide Application</h1>
                     <ol class="breadcrumb mb-4">
                         <!-- <li class="breadcrumb-item active">Dashboard</li> -->
                     </ol>

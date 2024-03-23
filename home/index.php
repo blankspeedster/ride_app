@@ -9,9 +9,6 @@ $bloodPressureSystolic = $mysqli->query("SELECT * FROM user_logs WHERE user_id =
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-</head>
 <?php include("head.php"); ?>
 
 <body class="sb-nav-fixed">

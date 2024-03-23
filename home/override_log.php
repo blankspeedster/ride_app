@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Override Vital Statistics - iResponse</title>
+    <title>Override Vital Statistics - FitToRide</title>
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-success">
+<body class="bg-primary">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -133,7 +133,7 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; iResponse <?php echo date("Y"); ?></div>
+                        <div class="text-muted">Copyright &copy; FitToRide <?php echo date("Y"); ?></div>
                         <div>
                             <a href="#">Privacy Policy</a>
                             &middot;
